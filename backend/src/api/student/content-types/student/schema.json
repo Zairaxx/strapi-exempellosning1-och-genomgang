@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "Frontendutvecklare",
+        "Backendutvecklare",
+        "UX-designer"
+      ]
+    },
+    "courses": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses.courses"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::teacher.teacher",
+      "inversedBy": "students"
+    }
+  }
+}

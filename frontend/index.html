@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <h1>Strapi - Övningsuppgift 1</h1>
+    <h2 id="schoolName">Placeholder</h2>
+    <h3>Kontakta oss: <span id="contactEmail"></span></h3>
+    <h3>
+      Currently teaching <span id="amountOfStudents"></span> students in
+      <span id="location"></span>
+    </h3>
+    <h2>Elever (klasslista)</h2>
+    <label for="filterEducation">Filtrera utbildning:</label>
+    <select id="filterEducation">
+      <option>Alla</option>
+      <option>Frontendutvecklare</option>
+      <option>Backendutvecklare</option>
+      <option>UX-designer</option>
+    </select>
+    <label for="sortByAge">Sortera efter ålder</label>
+    <select id="sortByAge">
+      <option>Osorterad</option>
+      <option>Stigande</option>
+      <option>Fallande</option>
+    </select>
+    <ul id="studentList"></ul>
+  </body>
+</html>
