@@ -6,15 +6,22 @@ let getData = async (url) => {
 
 let renderStudents = (array) => {
   let ul = document.querySelector("#studentList");
+  let education = document.querySelector("#filterEducation");
+  let sort = document.querySelector("#sortByAge").value;
+
   ul.innerHTML = "";
-
-  //Skapa en array-kopia
-  let students = [...array];
-
-  //Filtrering
+  let students;
+  //Skapa en array-kopia baserat på filtrering
+  if (education.value === "Alla") {
+    students = [...array];
+  } else {
+    students = array.filter(
+      (student) => student.attributes.education === education.value
+    );
+  }
 
   //Sortera på ålder - stigande och fallande
-  let sort = document.querySelector("#sortByAge").value;
+
   if (sort === "Stigande") {
     students.sort((a, b) => a.attributes.age - b.attributes.age);
   } else if (sort === "Fallande") {
@@ -65,16 +72,8 @@ let loadPage = async () => {
   // Filtrera utbildning
 
   let education = document.querySelector("#filterEducation");
-  education.addEventListener("change", (event) => {
-    console.log(event.target.value);
-    let filteredArray = students.filter(
-      (student) => student.attributes.education === event.target.value
-    );
-    if (event.target.value !== "Alla") {
-      renderStudents(filteredArray);
-    } else {
-      renderStudents(students);
-    }
+  education.addEventListener("change", () => {
+    renderStudents(students);
   });
   let sortByAge = document.querySelector("#sortByAge");
 
